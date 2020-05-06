@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" class="container" style="margin-top:6%">
+  {{form.csrf_token}}
+  <div class="field">
+    {{form.nim.label(class='label')}}
+    <div class="control has-icons-right">
+      {% if form.errors.nim %}
+        {{form.nim(class='input is-danger',placeholder='170010000')}}
+        <span class="icon is-small is-right">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        <p class="help is-danger">{{form.errors.nim[0]}}</p>
+      {% else %}
+        {{form.nim(class='input',placeholder='170010000')}}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="field">
+    {{form.password.label(class='label')}}
+    <div class="control has-icons-right">
+      {% if form.errors.password %}
+        {{form.password(class='input is-danger',placeholder='bla bla')}}
+        <span class="icon is-small is-right">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        <p class="help is-danger">{{form.errors.password[0]}}</p>
+      {% else %}
+        {{form.password(class='input',placeholder='bla bla')}}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="field">
+    <p class="control">
+      {{form.submit(class='button is-info')}}
+    </p>
+  </div>
+</form>
+{% endblock %}
