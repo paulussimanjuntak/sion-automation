@@ -1,2 +1,4 @@
 Flask
 Flask-WTF
+mechanize
+beautifulsoup4
