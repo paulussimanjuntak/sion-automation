@@ -5,5 +5,6 @@ from wtforms.validators import DataRequired, Length
 class SionForm(FlaskForm):
     nim = StringField('Nim',validators=[DataRequired(),Length(min=3,max=10)])
     password = PasswordField('Password',validators=[DataRequired(),Length(min=3)])
+    kelas = RadioField('Kelas Inter / Reguler',choices=[('reg','Reguler'),('intl','Internasional')])
     harapan = RadioField("Harapan untuk semua matkul ?",choices=[('1','1'),('1','-1')],validators=[DataRequired()])
     submit = SubmitField('Submit')

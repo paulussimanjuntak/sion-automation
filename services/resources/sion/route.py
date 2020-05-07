@@ -11,7 +11,8 @@ def sion():
         nim = form.nim.data
         password = form.password.data
         harapan = [form.harapan.data]
-        sion = AutomationSion(nim,password,harapan)
+        kelas = form.kelas.data
+        sion = AutomationSion(nim,password,harapan,kelas)
         if sion.automated() == 400: flash('Upps credential invalid or you already fill up kuesioner!','error')
         else: flash('Kuesioner berhasil di isi!','success')
         return redirect(url_for('sions.sion'))
