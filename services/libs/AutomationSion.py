@@ -20,7 +20,10 @@ class AutomationSion:
         br.submit()
         # access kuesioner
         try:
-            br.open(url + f'/{self.kelas}/KuesionerPBM/')
+            if self.kelas == 'reg':
+                br.open(url + '/reg/KuesionerPBM/')
+            else:
+                br.open(url + '/intl/pbm_survey/')
             soup = BeautifulSoup(br.response().read(),"html.parser")
             # get all mata kuliah
             raw_mata_kuliah = soup.find_all("a")[1:]
