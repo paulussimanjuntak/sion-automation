@@ -3,10 +3,11 @@ from typing import List
 from bs4 import BeautifulSoup
 
 class AutomationSion:
-    def __init__(self,nim: str, password: str,harapan: List):
+    def __init__(self,nim: str, password: str,harapan: List,kelas: str):
         self.nim = nim
         self.password = password
         self.harapan = harapan
+        self.kelas = kelas
 
     def automated(self) -> int:
         url = "http://sion.stikom-bali.ac.id"
@@ -19,7 +20,7 @@ class AutomationSion:
         br.submit()
         # access kuesioner
         try:
-            br.open(url + '/reg/KuesionerPBM/')
+            br.open(url + f'/{self.kelas}/KuesionerPBM/')
             soup = BeautifulSoup(br.response().read(),"html.parser")
             # get all mata kuliah
             raw_mata_kuliah = soup.find_all("a")[1:]

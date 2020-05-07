@@ -50,6 +50,16 @@ ol.patching > li {
   </div>
 
   <div class="field">
+    {{form.kelas.label(class='label')}}
+    <div class="control">
+      {{form.kelas(class="radio")}}
+      {% if form.errors.kelas %}
+        <p class="help is-danger">{{form.errors.kelas[0]}}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="field">
     {{form.harapan.label(class='label')}}
     <div class="control">
       {{form.harapan(class="radio")}}
